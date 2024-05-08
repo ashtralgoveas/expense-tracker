@@ -6,8 +6,6 @@
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js",
-    "lint:client": "eslint client . js,jsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint . --fix",
     "prettier": "prettier --check src/**/*.{js,ts,tsx,scss}",
     "prettier:fix": "prettier --write src/**/*.{js,ts,tsx,scss}"
   },
@@ -39,7 +37,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint client/ server/"
+      "pre-commit": "cd client && npm run lint"
     }
   }
 }
