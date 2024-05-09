@@ -37,7 +37,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint . --ext .js,.jsx && cd client && eslint . --ext .js,.jsx"
+      "pre-commit": "eslint client --ext .js,.jsx && git add . && eslint . --ext .js,.jsx"
     }
   }
 }
