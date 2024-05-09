@@ -6,8 +6,13 @@
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js",
+    "lint": "eslint --fix",
     "prettier": "prettier --check src/**/*.{js,ts,tsx,scss}",
-    "prettier:fix": "prettier --write src/**/*.{js,ts,tsx,scss}"
+    "prettier:fix": "prettier --write src/**/*.{js,ts,tsx,scss}",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "type": "module",
   "keywords": [],
@@ -15,29 +20,27 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.10.4",
-    "@eslint/js": "^9.2.0",
     "@graphql-tools/merge": "^9.0.4",
     "bcryptjs": "^2.4.3",
     "connect-mongodb-session": "^5.0.0",
     "cron": "^3.1.7",
     "dotenv": "^16.4.5",
-    "eslint-plugin-react": "^7.34.1",
+    "eslint-config-prettier": "^9.1.0",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
-    "globals": "^15.1.0",
     "graphql": "^16.8.1",
     "graphql-passport": "^0.6.8",
     "mongoose": "^8.3.3",
     "passport": "^0.7.0"
   },
   "devDependencies": {
-    "eslint": "^9.2.0",
+    "@eslint/js": "^9.2.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.1.0",
     "husky": "^9.0.11",
-    "nodemon": "^3.1.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "eslint client --ext .js,.jsx && git add . && eslint . --ext .js,.jsx"
-    }
+    "lint-staged": "^15.2.2",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
   }
 }
