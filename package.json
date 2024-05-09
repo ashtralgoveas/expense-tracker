@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "prettier": "prettier --check src/**/*.{js,ts,tsx,scss}",
     "prettier:fix": "prettier --write src/**/*.{js,ts,tsx,scss}",
-    "prepare": "husky"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write"
