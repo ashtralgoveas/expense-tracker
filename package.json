@@ -37,7 +37,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cd client && npm run lint"
+      "pre-commit": "eslint . --ext .js,.jsx && cd client && eslint . --ext .js,.jsx"
     }
   }
 }
