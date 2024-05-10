@@ -35,7 +35,6 @@ const userResolver = {
         await context.login(newUser);
         return newUser;
       } catch (err) {
-        console.error("Error in signUp: ", err);
         throw new Error(err.message || "Internal server error");
       }
     },
@@ -52,7 +51,6 @@ const userResolver = {
         await context.login(user);
         return user;
       } catch (err) {
-        console.error("Error in login:", err);
         throw new Error(err.message || "Internal server error");
       }
     },
@@ -66,7 +64,6 @@ const userResolver = {
 
         return { message: "Logged out successfully" };
       } catch (err) {
-        console.error("Error in logout:", err);
         throw new Error(err.message || "Internal server error");
       }
     },
@@ -77,8 +74,7 @@ const userResolver = {
         const user = await context.getUser();
         return user;
       } catch (err) {
-        console.error("Error in authUser: ", err);
-        throw new Error("Internal server error");
+        throw new Error("Internal server error", err);
       }
     },
     user: async (_, { userId }) => {
@@ -86,7 +82,6 @@ const userResolver = {
         const user = await User.findById(userId);
         return user;
       } catch (err) {
-        console.error("Error in user query:", err);
         throw new Error(err.message || "Error getting user");
       }
     },
@@ -97,7 +92,6 @@ const userResolver = {
         const transactions = await Transaction.find({ userId: parent._id });
         return transactions;
       } catch (err) {
-        console.log("Error in user.transactions resolver: ", err);
         throw new Error(err.message || "Internal server error");
       }
     },

@@ -63,7 +63,7 @@ const HomePage = () => {
     if (data?.categoryStatistics) {
       const categories = data.categoryStatistics.map((stat) => stat.category);
       const totalAmounts = data.categoryStatistics.map(
-        (stat) => stat.totalAmount
+        (stat) => stat.totalAmount,
       );
 
       const backgroundColors = [];
@@ -101,7 +101,6 @@ const HomePage = () => {
       await logout();
       client.resetStore();
     } catch (error) {
-      console.log("Error:", error);
       toast.error(error.message);
     }
   };

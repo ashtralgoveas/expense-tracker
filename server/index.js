@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import express from "express";
 import http from "http";
 import cors from "cors";
@@ -48,7 +49,7 @@ app.use(
       httpOnly: true,
     },
     store: store,
-  })
+  }),
 );
 
 app.use(passport.initialize());
@@ -71,7 +72,7 @@ app.use(
   express.json(),
   expressMiddleware(server, {
     context: async ({ req, res }) => buildContext({ req, res }),
-  })
+  }),
 );
 
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));

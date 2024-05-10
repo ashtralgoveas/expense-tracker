@@ -39,7 +39,6 @@ const Card = ({ transaction, authUser }) => {
       });
       toast.success("Transaction deleted successfully");
     } catch (error) {
-      console.error("Error deleting transaction:", error);
       toast.error(error.message);
     }
   };

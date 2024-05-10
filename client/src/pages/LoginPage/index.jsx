@@ -30,7 +30,6 @@ const LoginPage = () => {
     try {
       await login({ variables: { input: loginData } });
     } catch (error) {
-      console.log("Error:", error);
       toast.error(error.message);
     }
   };

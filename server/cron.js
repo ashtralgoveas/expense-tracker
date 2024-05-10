@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import cron from "cron";
 import https from "https";
 
